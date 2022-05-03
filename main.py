@@ -18,13 +18,9 @@ def handle_other(filename: Path, target_folder: Path):
 
 
 def handle_archive(filename: Path, target_folder: Path):
-    # Создаем папку для архивов
     target_folder.mkdir(exist_ok=True, parents=True)
-    #  Создаем папку куда распаковываем архив
-    # Берем суффикс у файла и убираем replace(filename.suffix, '')
     folder_for_file = target_folder / \
         normalize(filename.name.replace(filename.suffix, ''))
-    #  создаем папку для архива с именем файла
 
     folder_for_file.mkdir(exist_ok=True, parents=True)
     try:
@@ -97,7 +93,6 @@ def main(folder: Path):
     for file in parser.OTHER:
         handle_other(file, folder / 'OTHER')
 
-    # Выполняем реверс списка для того, чтобы все папки удалить.
     for folder in parser.FOLDERS[::-1]:
         handle_folder(folder)
 
