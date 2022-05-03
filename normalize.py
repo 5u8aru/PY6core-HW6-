@@ -16,5 +16,4 @@ def normalize(name: str) -> str:
     return t_name
 
 
-if __name__ == '__main__':
-    normalize()
+
